@@ -2,7 +2,21 @@
 -- See `:help vim.opt`
 -- NOTE: You can change these options as you wish!
 --  For more options, you can see `:help option-list`
+--
 
+vim.opt.wrap = false
+vim.api.nvim_create_autocmd('Filetype', {
+  pattern = 'markdown',
+  callback = function()
+    vim.opt.wrap = true
+    vim.opt.linebreak = true
+    -- Make movement intuitive in markdown files with wrapped lines
+    vim.api.nvim_set_keymap('n', 'j', 'gj', { noremap = false })
+    vim.api.nvim_set_keymap('n', 'k', 'gk', { noremap = false })
+    vim.api.nvim_set_keymap('n', '0', 'g0', { noremap = false })
+    vim.api.nvim_set_keymap('n', '$', 'g$', { noremap = false })
+  end,
+})
 -- Make line numbers default
 vim.opt.number = true
 -- You can also add relative line numbers, to help with jumping.
