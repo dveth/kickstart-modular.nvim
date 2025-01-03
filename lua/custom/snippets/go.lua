@@ -22,4 +22,10 @@ ls.add_snippets('go', {
       FBody = i(2, 'Function body'),
     })
   ),
+  s(
+    'iferr',
+    fmt('if err != nil{\n\t<Body>\n}\n', {
+      Body = i(1, 'return err'),
+    })
+  ),
 })
