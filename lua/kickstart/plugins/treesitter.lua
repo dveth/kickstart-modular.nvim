@@ -2,10 +2,20 @@ return {
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
+    event = { 'BufReadPre', 'BufNewFile' },
     main = 'nvim-treesitter.configs', -- Sets main module to use for opts
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
     opts = {
-      ensure_installed = { 'bash', 'c', 'diff', 'go', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' },
+      ensure_installed = { 'bash', 'c', 'diff', 'go', 'javascript', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' },
+      incremental_selection = {
+        enable = true,
+        keymaps = {
+          init_selection = '<c-y>',
+          node_incremental = '<c-y>',
+          scope_incremental = false,
+          node_decremental = '<bs>',
+        },
+      },
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {

@@ -175,6 +175,7 @@ return {
             command = 'clippy',
           },
         },
+        ts_ls = {},
         bacon = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
